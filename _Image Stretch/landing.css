@@ -1,0 +1,35 @@
+html,
+body {
+  height: 100%;
+  margin: 0px;
+}
+
+body {
+  background-image: url(london.jpg);
+  height: 100%;
+  background-size: auto 100%;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+#content {
+  
+	width: 75%;
+	height: 55%;
+  text-align:center;
+	position: absolute;
+	top:0;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	margin: auto;
+}
+
+#content, h2 {
+  font-family: 'Proxima Nova Soft', 'Helvetica Neue', sans-serif;
+}
+
+input {
+
+  width:250px;
+}

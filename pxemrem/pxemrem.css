@@ -1,0 +1,10 @@
+/* Parent */
+.menu {
+  font-size: 25px;
+}
+
+/* Child */
+.menu-item {
+  font-size: 0.9em;
+  padding-left: 12px;
+}
