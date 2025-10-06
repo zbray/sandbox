@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="./html-play-around.css">
+</head>
+<body>
+
+  <h1>HTML Sandbox</h1>
+
+  <!-- You can use a input form to search for options when options are present -->
+  <section>
+    <h2>Dropdown with searchable text</h2>
+    <form>
+      <label for="myHouse">Choose</label>
+      <input list="houses" id="myHouse" name="myHouse" placeholder="type here" />
+      <datalist id="houses">
+        <option value ="first house"></option>
+        <option value ="second house"></option>
+        <option value ="third house"></option>
+      </datalist>
+    </form>
+  </section>
+  <br>
+
+  <!-- Progress and Meter bars -->
+  <section>
+    <h2>Progress & Meter</h2>
+    <progress value ="56" max="100"></progress>
+    <meter min="0" max="100" value="56" low="25" high="75" optimum="50"></meter>
+  </section>
+
+  <!-- Details element can expand/collapse elements -->
+  <section>
+    <h2>
+      Expand/collapse details
+    </h2>
+    <details open>
+      <summary>Details Summary Title</summary>
+      <p>
+        Lorem, ipsum dolor sit amet consectetur adipisicing elit. Tempora, temporibus sint in sapiente debitis culpa aut pariatur velit amet odit labore minus suscipit non consequuntur ut quam neque maxime odio.
+      </p>
+    </details>
+    <details open>
+      <summary>Details Summary Title</summary>
+      <p>
+        Lorem, ipsum dolor sit amet consectetur adipisicing elit. Tempora, temporibus sint in sapiente debitis culpa aut pariatur velit amet odit labore minus suscipit non consequuntur ut quam neque maxime odio.
+      </p>
+    </details>
+  </section>
+
+  
+</body>
+</html>
