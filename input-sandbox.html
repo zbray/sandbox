@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <input
+      type="text"
+      inputmode="numeric"
+      autocomplete="one-time-code"
+      maxlength="6"
+    />
+    <input
+      type="text"
+      inputmode="numeric"
+      autocomplete="one-time-code"
+      maxlength="6"
+      pattern="\d{6}"
+      required
+    />
+    <form action="…" method="post">
+      <h2>Verify Account</h2>
+      <label for="otp">
+        Enter the 6-digit numeric code sent to +1 (555) 555-5555
+      </label>
+      <input
+        type="text"
+        id="otp"
+        inputmode="numeric"
+        autocomplete="one-time-code"
+        maxlength="6"
+        pattern="\d{6}"
+        required
+      />
+      <button>Continue</button>
+      <a href="…"> Try another way… </a>
+    </form>
+  </body>
+</html>
