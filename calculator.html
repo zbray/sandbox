@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Calculator</title>
+  </head>
+  <style>
+    body {
+      background-color: black;
+    }
+    button {
+      border-radius: 50%;
+      width: 30px;
+      color: white;
+    }
+    .func {
+      background-color: orange;
+    }
+    .topLeft {
+      background-color: #888888;
+    }
+    .num {
+      background-color: #484848;
+    }
+  </style>
+  <body>
+    <div>
+      <input
+        type="text"
+        value="12345"
+        readonly
+        style="width: 128px; text-align: right"
+      />
+
+      <table>
+        <tr>
+          <td><button type="button" class="topLeft">⌫</button></td>
+          <td><button type="button" class="topLeft">AC</button></td>
+          <td><button type="button" class="topLeft">%</button></td>
+          <td><button type="button" class="func">÷</button></td>
+        </tr>
+        <tr>
+          <td><button type="button" class="num">7</button></td>
+          <td><button type="button" class="num">8</button></td>
+          <td><button type="button" class="num">9</button></td>
+          <td><button type="button" class="func">x</button></td>
+        </tr>
+        <tr>
+          <td><button type="button" class="num">4</button></td>
+          <td><button type="button" class="num">5</button></td>
+          <td><button type="button" class="num">6</button></td>
+          <td><button type="button" class="func">-</button></td>
+        </tr>
+        <tr>
+          <td><button type="button" class="num">1</button></td>
+          <td><button type="button" class="num">2</button></td>
+          <td><button type="button" class="num">3</button></td>
+          <td><button type="button" class="func">+</button></td>
+        </tr>
+        <tr>
+          <td><button type="button" class="num">+/-</button></td>
+          <td><button type="button" class="num">0</button></td>
+          <td><button type="button" class="num">.</button></td>
+          <td><button type="button" class="func">=</button></td>
+        </tr>
+      </table>
+    </div>
+  </body>
+</html>
