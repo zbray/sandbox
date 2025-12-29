@@ -1,0 +1,41 @@
+html {
+  font-family: "Helvetica Neue", "Helvetica", "Arial", sans-serif;
+  font-size: 1em;
+  padding: 1rem;
+  margin: auto;
+  line-height: 1rem;
+}
+
+code {
+  display: block;
+  width: clamp(300px, 50%, 500px);
+  margin: auto;
+  padding: 10px;
+  background: rgba(0, 0, 0, 0.05);
+}
+
+blockquote {
+  background: rgba(0, 0, 0, 0.05);
+  border-left: 0.5ex solid #e4002b;
+  border-top-right-radius: 10px;
+  border-bottom-right-radius: 10px;
+  padding: 20px;
+  margin: 0px auto;
+  font-style: italic;
+  width: clamp(300px, 50%, 500px);
+}
+
+blockquote p {
+  margin: 0;
+}
+
+blockquote > ul:last-child {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  text-align: right;
+}
+
+blockquote > ul:last-child > li::before {
+  content: "— ";
+}
