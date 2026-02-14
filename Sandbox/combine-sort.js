@@ -25,17 +25,17 @@ function combineSortedArrays(arr1, arr2) {
       j++;
     }
     // at this step whichever array is finished will skip its while loop so we need to grab leftovers from the other array.
+  }
 
-    // add leftovers from arr1
-    while (i < arr1.length) {
-      result.push(arr1[i]);
-      i++;
-    }
-    // add leftovers from arr2
-    while (j < arr2.length) {
-      result.push(arr2[j]);
-      j++;
-    }
+  // add leftovers from arr1
+  while (i < arr1.length) {
+    result.push(arr1[i]);
+    i++;
+  }
+  // add leftovers from arr2
+  while (j < arr2.length) {
+    result.push(arr2[j]);
+    j++;
   }
   return result;
 }
