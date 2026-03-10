@@ -17,7 +17,7 @@ function longestUnique(str) {
     // console.log(right, str[right]);
 
     // now we need an if/else to check if charMap already includes the current value of str[right]str[right] is already in charMap and to add it if not
-    if (charMap[str[right]]) {
+    if (str[right] in charMap) {
       // when we find a duplicate we need to slide the left side of our window over 1 index
       // we also need to delete the first of the repeated characters (stored at str[left]) from the charmap so it may discover it for the first time if it sees it as the right side of the window moves
       delete charMap[str[left]];
@@ -37,7 +37,7 @@ function longestUnique(str) {
 longestUnique("pwwkew");
 console.log(longestUnique("pwwkew"));
 
-// Explanation: 
+// Explanation:
 // This sliding window checks for the longest substring with non-repeating characters. As the right pointer moves through the input and finds new characters, it updates maxLength with the current window size. When it finds a duplicate, the left side of the window moves one character to the right until the duplicate is gone, then continues.
 
 // This was tough. I watched a few short videos explaining this algorithm (albeit without the forbidden rules here) until I got a sense of the logic
