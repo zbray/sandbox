@@ -30,11 +30,11 @@
    Constraint: Pure nested loops only. Absolutely no .map().
    Expected Output: ```javascript const grid = [ [1, 2, 3], [4, 5, 6], [7, 8, 9] ]; // Output should be: // [ // [1, 4, 7], // [2, 5, 8], // [3, 6, 9] // ] -->
 
-6. The "Unique Sequence" (Sliding Window)
+<!-- 6. The "Unique Sequence" (Sliding Window)
 
    Description: Given a string, find the length of the longest continuous substring that has no repeating characters.
    Forbidden: .split(), .includes(), .indexOf(), or Set.
-   Expected Output: longestUnique("abcabcbb") -> 3 (for "abc"). longestUnique("pwwkew") -> 3 (for "wke").
+   Expected Output: longestUnique("abcabcbb") -> 3 (for "abc"). longestUnique("pwwkew") -> 3 (for "wke"). -->
 
 7. The "Pascal's Generator" (Previous State Dependency)
 
