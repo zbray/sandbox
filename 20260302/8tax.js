@@ -25,6 +25,19 @@ function calcTax(prices) {
 function calcTax(prices) {
   // .map will iterate through each element in input array
   return prices.map(function(price) {
+    // and return each price multiplied by 1.1 
     return price * 1.1;
   });
+}
+
+// v3
+
+function calcTax(prices) {
+  // using the reduce method on the input prices array iterate using reduce
+  return prices.reduce(function (acc, price) {
+    // push to acc the taxed amount of each price
+    acc.push(price * 1.1);
+    // return the acc array
+    return acc;
+  }, []);
 }
