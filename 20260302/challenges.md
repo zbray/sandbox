@@ -55,12 +55,12 @@
    V2 (Native): Use .map().
    V3 (The Flex): Achieve the exact same result using .reduce(). -->
 
-9. The "Bouncer" (Focus: Filter)
+<!-- 9. The "Bouncer" (Focus: Filter)
 
    Description: Given an array of ages [15, 22, 17, 30, 12], return an array of only the ages 18 and over.
    V1 (Pure): Use only for/while loops and if statements.
    V2 (Native): Use .filter().
-   V3 (The Flex): Achieve the exact same result using .reduce().
+   V3 (The Flex): Achieve the exact same result using .reduce(). -->
 
 10. The "Cash Register" (Focus: Reduce)
 
