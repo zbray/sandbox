@@ -48,12 +48,12 @@
 <!---->
 <!---->
 
-8. The "Tax Calculator" (Focus: Map)
+<!-- 8. The "Tax Calculator" (Focus: Map)
 
    Description: Take an array of prices and add a 10% tax to each one.
    V1 (Pure): Use only for/while loops and .push().
    V2 (Native): Use .map().
-   V3 (The Flex): Achieve the exact same result using .reduce().
+   V3 (The Flex): Achieve the exact same result using .reduce(). -->
 
 9. The "Bouncer" (Focus: Filter)
 
