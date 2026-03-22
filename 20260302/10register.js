@@ -7,6 +7,7 @@
 // V1
 
 function cash(inputArr) {
+  // start with a zero total
   total = 0;
   for (let i = 0; i < inputArr.length; i++) {
     // add each element in the inputArr to total
@@ -19,6 +20,7 @@ console.log(cash([3, 17, 14, 25, 15]));
 // V2
 
 function cash(inputArr) {
+  // initialize a result variable that is the sum of all elements of the inputArr array.
   const result = inputArr.reduce(function (acc, cur) {
     return acc + cur;
   }, 0);
