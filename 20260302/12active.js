@@ -5,7 +5,7 @@
 //     V2 (Native): Use .filter().
 //     V3 (The Flex): Use .reduce().
 
-// V1
+// V1 loops
 
 function activeUser(userArray) {
   // initialize a blank results array
@@ -26,9 +26,21 @@ console.log(
   ]),
 );
 
-// V2
+// V2 - filter()
 
-// V3
+// initialize the user inputted array
+const userArray = [
+  { name: "Alice", active: true },
+  { name: "Bob", active: false },
+];
+// as the function iterates through userArray and assigns each element the "user" name
+const result = userArray.filter(function (user) {
+  // and returns to the result array only objects where the active key has a true value.
+  return user.active;
+});
+console.log(result);
+
+// V3 - reduce()
 
 function activeUser(userArray) {
   const result = userArray.reduce(function (acc, cur) {
