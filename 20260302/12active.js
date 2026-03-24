@@ -13,7 +13,7 @@ function activeUser(userArray) {
   for (let i = 0; i < userArray.length; i++) {
     // check for active=true and push name to results
     if (userArray[i].active) {
-      results.push(userArray[i].name);
+      results.push(userArray[i]);
     }
   }
   return results;
@@ -45,7 +45,7 @@ console.log(result);
 function activeUser(userArray) {
   const result = userArray.reduce(function (acc, cur) {
     if (cur.active) {
-      acc.push(cur.name);
+      acc.push(cur);
     }
     return acc;
   }, []);
