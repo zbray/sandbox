@@ -75,12 +75,12 @@
     V2 (Native): Use .map().
     V3 (The Flex): Use .reduce(). -->
 
-12. The "Active User Finder" (Objects + Filter)
+<!-- 12. The "Active User Finder" (Objects + Filter)
 
     Description: Given an array of user objects [{name: "Alice", active: true}, {name: "Bob", active: false}], return an array of only the objects where active is true.
     V1 (Pure): Use only loops.
     V2 (Native): Use .filter().
-    V3 (The Flex): Use .reduce().
+    V3 (The Flex): Use .reduce(). -->
 
 13. The "VIP Guest List" (The Filter-Map Combo)
 
