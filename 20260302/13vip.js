@@ -9,11 +9,11 @@
 
 // Given the array of guest objects `guests` the function `vip` will capitalize and push all `names` where `vip` is true and `age` is 18 or over.
 
-const guests = [
-  { name: "john", age: 17, vip: true },
-  { name: "sarah", age: 22, vip: true },
-  { name: "mike", age: 25, vip: false },
-];
+// const guests = [
+//   { name: "john", age: 17, vip: true },
+//   { name: "sarah", age: 22, vip: true },
+//   { name: "mike", age: 25, vip: false },
+// ];
 
 function vip(guests) {
   let results = [];
@@ -28,3 +28,16 @@ console.log(vip(guests));
 
 // V2
 
+// Chaining .map onto .filter we first create a new array of all objects where age is 18 or over and vip is true - then return only the name in all caps using .map
+
+const guests = [
+  { name: "john", age: 17, vip: true },
+  { name: "sarah", age: 22, vip: true },
+  { name: "mike", age: 25, vip: false },
+];
+const result = guests
+  .filter((guest) => guest.age >= 18 && guest.vip)
+  .map((guest) => guest.name.toUpperCase());
+console.log(result);
+
+// V3
