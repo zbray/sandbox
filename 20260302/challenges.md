@@ -89,7 +89,7 @@
     V2 (Native): Chain .filter().map(). (Point out that this loops through the array twice).
     V3 (The Flex): Use a single .reduce() to filter and map in one single pass (O(N) time). -->
 
-14. The "Deep Grade Analyzer" (Flattening & Math)
+<!-- 14. The "Deep Grade Analyzer" (Flattening & Math)
 
     Description: Given an array of classes, each containing an array of student objects with their grades, find the overall average grade of all students combined.
 
@@ -102,5 +102,4 @@ const classes = [
 
     V1 (Pure): Nested for loops tracking a sum and a count.
     V2 (Native): .flatMap() to combine the arrays, then .map() to get the grades, then .reduce() to sum them.
-    V3 (The Flex): A single, highly complex .reduce() that flattens, extracts, and sums all at once.
-
+    V3 (The Flex): A single, highly complex .reduce() that flattens, extracts, and sums all at once. -->
