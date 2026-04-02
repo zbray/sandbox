@@ -21,7 +21,7 @@
 //   ],
 //   [{ name: "Cid", grade: 70 }],
 // ]; // Total grades: 240. Total students: 3. Average: 80.
-// function deepGrade(classes) {
+// function gradeNative(classes) {
 //   let totalGrades = 0;
 //   let totalStudents = 0;
 //   for (const studentClass of classes) {
@@ -32,5 +32,23 @@
 //   }
 //   return totalGrades / totalStudents;
 // }
-// console.log(deepGrade(classes));
+// console.log(gradeNative(classes));
 
+// V2
+const classes = [
+  [
+    { name: "Ali", grade: 80 },
+    { name: "Bia", grade: 90 },
+  ],
+  [{ name: "Cid", grade: 70 }],
+];
+function gradePure(classes) {
+  const students = classes.flatMap((studentClass) => studentClass);
+  const grades = students
+    .map((student) => student.grade)
+    .reduce((totalGrades, grade) => totalGrades + grade, 0);
+  const average = grades / students.length;
+  return average;
+}
+
+// V3
