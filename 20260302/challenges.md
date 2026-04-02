@@ -103,3 +103,4 @@ const classes = [
     V1 (Pure): Nested for loops tracking a sum and a count.
     V2 (Native): .flatMap() to combine the arrays, then .map() to get the grades, then .reduce() to sum them.
     V3 (The Flex): A single, highly complex .reduce() that flattens, extracts, and sums all at once.
+
