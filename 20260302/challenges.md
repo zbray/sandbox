@@ -103,3 +103,27 @@ const classes = [
     V1 (Pure): Nested for loops tracking a sum and a count.
     V2 (Native): .flatMap() to combine the arrays, then .map() to get the grades, then .reduce() to sum them.
     V3 (The Flex): A single, highly complex .reduce() that flattens, extracts, and sums all at once. -->
+
+
+15. The "Tree Builder" (Flat to Hierarchical)
+
+    Description: Databases return "flat" data, but UI components (like dropdown menus or comment threads) need "nested" trees. Take a flat array of categories and build a nested object tree.
+
+The Input:
+
+const flat = [
+  { id: 1, name: "Electronics", parentId: null },
+  { id: 2, name: "Computers", parentId: 1 },
+  { id: 3, name: "Laptops", parentId: 2 },
+  { id: 4, name: "Books", parentId: null }
+];
+
+    Expected Output: An object or array where "Computers" is nested inside the children array of "Electronics", and "Laptops" is inside "Computers".
+    Logic Concept: This tests object references and Hash Maps. If he tries to solve this with raw nested loops, it will be a nightmare. He needs to learn to create a "Lookup Map" (an object mapping IDs to the items) to assemble the tree efficiently.
+
+
+16. The "Data Table Controller" (Pagination & Sorting)
+
+    Description: Write a function getTableData(data, sortBy, sortOrder, page, pageSize) that takes a massive array of user objects and returns only the specific slice of data the user is looking at.
+    Example Call: getTableData(users, "age", "desc", 2, 10) (This should sort the users by age descending, skip the first 10, and return the next 10).
+    Logic Concept: This is the ultimate pipeline. He must handle missing arguments (defaults), sort the data dynamically based on object keys, and then use math ((page - 1) * pageSize) to slice the array properly.
