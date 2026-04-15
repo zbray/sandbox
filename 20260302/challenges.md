@@ -105,7 +105,7 @@ const classes = [
     V3 (The Flex): A single, highly complex .reduce() that flattens, extracts, and sums all at once. -->
 
 
-15. The "Tree Builder" (Flat to Hierarchical)
+<!-- 15. The "Tree Builder" (Flat to Hierarchical)
 
     Description: Databases return "flat" data, but UI components (like dropdown menus or comment threads) need "nested" trees. Take a flat array of categories and build a nested object tree.
 
@@ -119,7 +119,7 @@ const flat = [
 ];
 
     Expected Output: An object or array where "Computers" is nested inside the children array of "Electronics", and "Laptops" is inside "Computers".
-    Logic Concept: This tests object references and Hash Maps. If he tries to solve this with raw nested loops, it will be a nightmare. He needs to learn to create a "Lookup Map" (an object mapping IDs to the items) to assemble the tree efficiently.
+    Logic Concept: This tests object references and Hash Maps. If he tries to solve this with raw nested loops, it will be a nightmare. He needs to learn to create a "Lookup Map" (an object mapping IDs to the items) to assemble the tree efficiently. -->
 
 
 16. The "Data Table Controller" (Pagination & Sorting)
