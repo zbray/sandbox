@@ -51,12 +51,9 @@ function buildTree(flat) {
       lookupMap[item.parentId].children.push(lookupMap[item.id]);
     }
   });
-
-  console.log(lookupMap);
-  console.log(JSON.stringify(rootNodes, null, 2));
+  return rootNodes;
+  // console.log(JSON.stringify(rootNodes, null, 2));
 }
-buildTree(flat);
-
-// Topics covered:
+console.log(JSON.stringify(buildTree(flat), null, 2)); // Topics covered:
 // 1. Lookup map
 // 2. Object references
