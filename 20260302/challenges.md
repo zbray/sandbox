@@ -104,7 +104,6 @@ const classes = [
     V2 (Native): .flatMap() to combine the arrays, then .map() to get the grades, then .reduce() to sum them.
     V3 (The Flex): A single, highly complex .reduce() that flattens, extracts, and sums all at once. -->
 
-
 <!-- 15. The "Tree Builder" (Flat to Hierarchical)
 
     Description: Databases return "flat" data, but UI components (like dropdown menus or comment threads) need "nested" trees. Take a flat array of categories and build a nested object tree.
@@ -120,7 +119,6 @@ const flat = [
 
     Expected Output: An object or array where "Computers" is nested inside the children array of "Electronics", and "Laptops" is inside "Computers".
     Logic Concept: This tests object references and Hash Maps. If he tries to solve this with raw nested loops, it will be a nightmare. He needs to learn to create a "Lookup Map" (an object mapping IDs to the items) to assemble the tree efficiently. -->
-
 
 <!-- 16. The "Data Table Controller" (Pagination & Sorting)
 
@@ -140,7 +138,7 @@ Expected Output: [[1, 6], [8, 10], [15, 18]] (Because the 1-3 and 2-6 meetings o
 
 Logic Concept: This is a classic whiteboard problem. He first needs to sort the array by the start times. Then, he can iterate through them, keeping track of the "currently active" meeting. If the next meeting starts before the current one ends, he updates the end time. If not, he pushes the current meeting to his result and starts tracking the next one. -->
 
-18. The "Version Manager" (Semantic Sorting)
+<!-- 18. The "Version Manager" (Semantic Sorting)
 
 Description: You are building a software updater. You receive a list of version numbers as strings, and you need to sort them from oldest to newest.
 
@@ -153,7 +151,7 @@ const versions = ["1.1.2", "1.10.0", "1.2.0", "2.0.1", "0.9.9"];
 
 Expected Output: ["0.9.9", "1.1.2", "1.2.0", "1.10.0", "2.0.1"]
 
-Logic Concept: He has to split the strings by the period (.split('.')), convert the chunks into numbers, and write a custom comparison function for .sort(). He must compare the "Major" version first; if they are a tie, compare the "Minor" version; if they are a tie, compare the "Patch" version.
+Logic Concept: He has to split the strings by the period (.split('.')), convert the chunks into numbers, and write a custom comparison function for .sort(). He must compare the "Major" version first; if they are a tie, compare the "Minor" version; if they are a tie, compare the "Patch" version. -->
 
 19. The "E-Commerce Engine" (Advanced State Management)
 
@@ -161,90 +159,89 @@ Logic Concept: He has to split the strings by the period (.split('.')), convert 
     The Input:
 
 const actions = [
-  { type: "add", item: "laptop", price: 1000, qty: 1 },
-  { type: "add", item: "mouse", price: 50, qty: 1 },
-  { type: "add", item: "laptop", price: 1000, qty: 1 },
-  { type: "remove", item: "mouse", qty: 1 },
-  { type: "add", item: "keyboard", price: 100, qty: 2 }
+{ type: "add", item: "laptop", price: 1000, qty: 1 },
+{ type: "add", item: "mouse", price: 50, qty: 1 },
+{ type: "add", item: "laptop", price: 1000, qty: 1 },
+{ type: "remove", item: "mouse", qty: 1 },
+{ type: "add", item: "keyboard", price: 100, qty: 2 }
 ];
 const discountPercent = 10; // 10% off the total
 
     Expected Output:
 
 {
-  cart: { laptop: 2, keyboard: 2 },
-  finalTotal: 1980 // (2 laptops + 2 keyboards) = 2200 - 10% discount
+cart: { laptop: 2, keyboard: 2 },
+finalTotal: 1980 // (2 laptops + 2 keyboards) = 2200 - 10% discount
 }
 
     Logic Concept: This is the ultimate test of everything he has learned. He will likely need to use .reduce() (or a very well-managed for loop and an external object) to build the cart state step-by-step. He has to handle the logic of removing an item completely if its quantity hits 0, and then do a final math calculation on the result.
 
-
 20. The "University Registrar" (Deep Aggregation & Data Cleaning)
-Goal: Test his patience, organizational skills, and ability to track scope through deeply nested structures. He will need to clean data, perform math, and restructure the output entirely. Constraint: None. He can use any built-in methods.
-The Description: "You are building a reporting dashboard for a University. You receive a deeply nested array of departments, courses, and students. However, the data is messy. Students missed tests, some scores were recorded as strings, and some are just missing.
-Your task is to build a comprehensive report that calculates:
+    Goal: Test his patience, organizational skills, and ability to track scope through deeply nested structures. He will need to clean data, perform math, and restructure the output entirely. Constraint: None. He can use any built-in methods.
+    The Description: "You are building a reporting dashboard for a University. You receive a deeply nested array of departments, courses, and students. However, the data is messy. Students missed tests, some scores were recorded as strings, and some are just missing.
+    Your task is to build a comprehensive report that calculates:
 
-    Every individual student's average (ignoring invalid/missing scores).
-    The average score for each course.
-    The average score for each department.
-    The overall university average.
-    The name and score of the single top-performing student in the whole university."
+        Every individual student's average (ignoring invalid/missing scores).
+        The average score for each course.
+        The average score for each department.
+        The overall university average.
+        The name and score of the single top-performing student in the whole university."
 
 The Input:
 
 const universityData = [
-  {
-    department: "Engineering",
-    courses: [
-      {
-        courseName: "Calculus",
-        students: [
-          { id: "e1", name: "Alice", scores: [80, 90, 85] },
-          { id: "e2", name: "Bob", scores: [70, null, "absent", 75] } // Needs cleaning
-        ]
-      },
-      {
-        courseName: "Physics",
-        students: [
-          { id: "e3", name: "Charlie", scores: [90, "95", 92] } // String needs parsing
-        ]
-      }
-    ]
-  },
-  {
-    department: "Arts",
-    courses: [
-      {
-        courseName: "History",
-        students: [
-          { id: "a1", name: "Diana", scores: [88, 82, 85] },
-          { id: "a2", name: "Evan", scores: [] } // Edge case: No scores
-        ]
-      }
-    ]
-  }
+{
+department: "Engineering",
+courses: [
+{
+courseName: "Calculus",
+students: [
+{ id: "e1", name: "Alice", scores: [80, 90, 85] },
+{ id: "e2", name: "Bob", scores: [70, null, "absent", 75] } // Needs cleaning
+]
+},
+{
+courseName: "Physics",
+students: [
+{ id: "e3", name: "Charlie", scores: [90, "95", 92] } // String needs parsing
+]
+}
+]
+},
+{
+department: "Arts",
+courses: [
+{
+courseName: "History",
+students: [
+{ id: "a1", name: "Diana", scores: [88, 82, 85] },
+{ id: "a2", name: "Evan", scores: [] } // Edge case: No scores
+]
+}
+]
+}
 ];
 
 The Expected Output:
 
 {
-  universityAverage: 85.3, // (Or whatever the exact math comes out to)
-  topStudent: { name: "Charlie", average: 92.3 },
-  departments: {
-    "Engineering": {
-      departmentAverage: 84.5,
-      courses: {
-        "Calculus": 80.0,
-        "Physics": 92.3
-      }
-    },
-    "Arts": {
-      departmentAverage: 85.0,
-      courses: {
-        "History": 85.0
-      }
-    }
-  }
+universityAverage: 85.3, // (Or whatever the exact math comes out to)
+topStudent: { name: "Charlie", average: 92.3 },
+departments: {
+"Engineering": {
+departmentAverage: 84.5,
+courses: {
+"Calculus": 80.0,
+"Physics": 92.3
+}
+},
+"Arts": {
+departmentAverage: 85.0,
+courses: {
+"History": 85.0
+}
+}
+}
 }
 
 Logic Concept: This is laborious because it requires a multi-step pipeline. If he tries to do this in one giant nested loop, he will get completely lost.
@@ -253,9 +250,8 @@ Step 1: He needs to learn to write helper functions (e.g., calculateCleanAverage
 Step 2: He has to traverse the tree from the bottom up. Calculate student averages first, push those up to calculate course averages, push those up for department averages, etc.
 Step 3: He has to completely flip the structure from arrays into nested objects based on keys.
 
-
 21. The "Global Financial Reconciliation" (The Ultimate Pipeline)
-Goal: Simulate a real-world, extremely messy data integration task. He must build a pipeline that cleans inconsistent data types, normalizes currencies, parses dates, and aggregates metrics across multiple dimensions. Constraint: None. He should heavily rely on built-in methods and is strongly encouraged to write separate helper functions (e.g., parsePrice(), normalizeDate()) rather than doing it all in one massive block.
+    Goal: Simulate a real-world, extremely messy data integration task. He must build a pipeline that cleans inconsistent data types, normalizes currencies, parses dates, and aggregates metrics across multiple dimensions. Constraint: None. He should heavily rely on built-in methods and is strongly encouraged to write separate helper functions (e.g., parsePrice(), normalizeDate()) rather than doing it all in one massive block.
 
 The Description: "You are tasked with generating an end-of-quarter financial report for a global e-commerce marketplace. You are given a massive log of raw transactions, but the data comes from different regional servers, meaning the formatting is a complete disaster.
 
@@ -266,8 +262,8 @@ The Business Rules (The Mentee MUST follow these):
 1. Status: Only calculate revenue for transactions where the status is exactly "COMPLETED" (case-insensitive). Ignore "failed", "pending", or "refunded".
 2. Quantities: If qty is missing (null or undefined), assume it is 1. If it's a string ("3"), convert it to a number.
 3. Currencies: Prices are a mess.
-    If it's a raw number (e.g., 25.5), assume it's USD.
-    If it's a string, it contains a symbol ($, €, £, ¥). You must strip the symbol, convert the string to a number (watch out for European comma decimals like "20,50" which means 20.50), and multiply it by the provided exchange rate to get the USD value.
+   If it's a raw number (e.g., 25.5), assume it's USD.
+   If it's a string, it contains a symbol ($, €, £, ¥). You must strip the symbol, convert the string to a number (watch out for European comma decimals like "20,50" which means 20.50), and multiply it by the provided exchange rate to get the USD value.
 4. Dates: Dates come in multiple formats (YYYY-MM-DD, MM/DD/YYYY, or full ISO strings). You must extract just the Year and Month to group revenue by month (e.g., "2023-01").
 
 The Input Data:
@@ -275,13 +271,13 @@ The Input Data:
 const exchangeRates = { EUR: 1.10, GBP: 1.30, JPY: 0.007, USD: 1 };
 
 const rawTransactions = [
-      { tId: "T1", user: "u01", product: "Laptop", qty: 2, price: "$1000.00", status: "COMPLETED", date: "2023-01-15" },
-      { tId: "T2", user: "u02", product: "Mouse", qty: null, price: "€20,00", status: "completed", date: "01/16/2023" }, 
-      { tId: "T3", user: "u01", product: "Laptop", qty: 1, price: "$1000.00", status: "REFUNDED", date: "2023-01-20" }, 
-      { tId: "T4", user: "u03", product: "Keyboard", qty: 5, price: "£40.50", status: "Failed", date: "2023-02-05" },
-      { tId: "T5", user: "u02", product: "Monitor", qty: "3", price: "¥15000", status: "COMPLETED", date: "2023-02-10T08:00:00Z" }, 
-      { tId: "T6", user: "u04", product: "Mouse", qty: 1, price: 25.00, status: "COMPLETED", date: "2023-03-01" } 
-    ];
+{ tId: "T1", user: "u01", product: "Laptop", qty: 2, price: "$1000.00", status: "COMPLETED", date: "2023-01-15" },
+{ tId: "T2", user: "u02", product: "Mouse", qty: null, price: "€20,00", status: "completed", date: "01/16/2023" },
+{ tId: "T3", user: "u01", product: "Laptop", qty: 1, price: "$1000.00", status: "REFUNDED", date: "2023-01-20" },
+{ tId: "T4", user: "u03", product: "Keyboard", qty: 5, price: "£40.50", status: "Failed", date: "2023-02-05" },
+{ tId: "T5", user: "u02", product: "Monitor", qty: "3", price: "¥15000", status: "COMPLETED", date: "2023-02-10T08:00:00Z" },
+{ tId: "T6", user: "u04", product: "Mouse", qty: 1, price: 25.00, status: "COMPLETED", date: "2023-03-01" }
+];
 
 The Expected Output: He needs to transform that mess into this exact analytical structure:
 
