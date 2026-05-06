@@ -45,7 +45,7 @@ function processCart(actions, discountPercent) {
       // For all add actions:
       // using the Nullish coalescing operator check first if the item already exists in cart, if it doesn't exist start from zero and add that item's qty.
       // if it does exist, carry on from that qty
-      // then save the unit price to state for discount calc later
+      // then save the unit price to state for discount calc late
       if (type === "add") {
         state.cart[item] = (state.cart[item] ?? 0) + qty;
         state.prices[item] = price;
@@ -55,6 +55,7 @@ function processCart(actions, discountPercent) {
       // check if what is being removed exists in the cart. if it doesn't, treat as 0 so as to not return undefined
       // if it does exist, calculate what the new qty will be after removing items
       // this is stored in updatedQty to check how to proceed per prompt
+      // in the real world we may prevent the removal of items that don't exist in cart and just throw an error to the user
       if (type === "remove") {
         // store the result of the current cart item less the qty of the current iterating element's qty to updatedQty
         const updatedQty = (state.cart[item] ?? 0) - qty;
