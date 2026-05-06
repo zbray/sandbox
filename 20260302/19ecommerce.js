@@ -39,14 +39,14 @@ const discountPercent = 10;
 function processCart(actions, discountPercent) {
   const { cart, prices } = actions.reduce(
     (state, action) => {
-      // initialize 3 new variables by destructuring the input actions objects being processed from the reduce() method
-      const { item, qty, price } = action;
+      // initialize new variables by destructuring the input actions objects being processed from the reduce() method
+      const { item, qty, price, type } = action;
 
       // For all add actions:
       // using the Nullish coalescing operator check first if the item already exists in cart, if it doesn't exist start from zero and add that item's qty.
       // if it does exist, carry on from that qty
       // then save the unit price to state for discount calc later
-      if (action.type === "add") {
+      if (type === "add") {
         state.cart[item] = (state.cart[item] ?? 0) + qty;
         state.prices[item] = price;
       }
@@ -55,7 +55,7 @@ function processCart(actions, discountPercent) {
       // check if what is being removed exists in the cart. if it doesn't, treat as 0 so as to not return undefined
       // if it does exist, calculate what the new qty will be after removing items
       // this is stored in updatedQty to check how to proceed per prompt
-      if (action.type === "remove") {
+      if (type === "remove") {
         // store the result of the current cart item less the qty of the current iterating element's qty to updatedQty
         const updatedQty = (state.cart[item] ?? 0) - qty;
         // if updatedQty is <= 0 the item needs to be removed from the cart.
@@ -74,12 +74,13 @@ function processCart(actions, discountPercent) {
 
   // object.entries returns an array of an object's own key-value pairs
   // convert the object to an array of values and return the total subtotal of all items
-  const subtotal = Object.entries(cart).reduce((sum, [item, qty]) => {
-    return sum + prices[item] * qty;
-  }, 0);
+  const subtotal = Object.entries(cart).reduce(
+    (sum, [item, qty]) => sum + qty * prices[item],
+    0,
+  );
 
-  const finalTotal = subtotal * ((100 - discountPercent) / 100);
-
+  // prevent trailing decimals with Math.round
+  const finalTotal = Math.round(subtotal * ((100 - discountPercent) / 100));
   return { cart, finalTotal };
 }
 
