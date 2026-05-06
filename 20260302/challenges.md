@@ -153,7 +153,7 @@ Expected Output: ["0.9.9", "1.1.2", "1.2.0", "1.10.0", "2.0.1"]
 
 Logic Concept: He has to split the strings by the period (.split('.')), convert the chunks into numbers, and write a custom comparison function for .sort(). He must compare the "Major" version first; if they are a tie, compare the "Minor" version; if they are a tie, compare the "Patch" version. -->
 
-19. The "E-Commerce Engine" (Advanced State Management)
+<!-- 19. The "E-Commerce Engine" (Advanced State Management)
 
     Description: A user is clicking around a shopping cart quickly. You receive an array of "actions" they took. You need to process these actions in order, consolidate duplicate items, handle removals, apply a store-wide discount, and return the final checkout object.
     The Input:
@@ -174,7 +174,7 @@ cart: { laptop: 2, keyboard: 2 },
 finalTotal: 1980 // (2 laptops + 2 keyboards) = 2200 - 10% discount
 }
 
-    Logic Concept: This is the ultimate test of everything he has learned. He will likely need to use .reduce() (or a very well-managed for loop and an external object) to build the cart state step-by-step. He has to handle the logic of removing an item completely if its quantity hits 0, and then do a final math calculation on the result.
+    Logic Concept: This is the ultimate test of everything he has learned. He will likely need to use .reduce() (or a very well-managed for loop and an external object) to build the cart state step-by-step. He has to handle the logic of removing an item completely if its quantity hits 0, and then do a final math calculation on the result. -->
 
 20. The "University Registrar" (Deep Aggregation & Data Cleaning)
     Goal: Test his patience, organizational skills, and ability to track scope through deeply nested structures. He will need to clean data, perform math, and restructure the output entirely. Constraint: None. He can use any built-in methods.
