@@ -116,14 +116,22 @@ const universityData = [
 
 // Step 1: Write helper function to filter to only valid numbers,handle  numbers and return average
 function calculateCleanAverage(scores) {
-  // Substep 1: filter to only valid numbers
-  const valid = scores.filter(
-    (score) => typeof score === "number" && score !== null,
-  );
+  // Substep 1: initialize valid variable to store scores that only numbers, ignore everything else
+  const valid = scores.filter((score) => typeof score === "number");
 
   // Substep 2: ignore invalid/missing scores
+  // This ignores Evan as Evan has no scores
   if (valid.length === 0) return null;
 
   // Substep 3: find the average
   return valid.reduce((sum, score) => sum + score, 0) / valid.length;
 }
+// Test the helper function
+console.log(calculateCleanAverage([80, 90, 85])); // Alice
+console.log(calculateCleanAverage([70, null, "absent", 75])); // Bob
+console.log(calculateCleanAverage([90, "95", 92])); // Charlie
+console.log(calculateCleanAverage([88, 82, 85])); // Diana
+console.log(calculateCleanAverage([])); // Evan
+
+
+// function generateUniversityRegistrar
