@@ -169,7 +169,7 @@ function generateUniversityRegistrar(data) {
 
         // Step 2.2 Course average (add to courseReports here)
         // This delivers the requirement in Step 3, "He has to completely flip the structure from arrays into nested objects based on keys."
-        courseReports[courseName] = courseAverage;
+        courseReports[courseName] = Math.round(courseAverage * 100) / 100;
       }
     });
 
@@ -181,16 +181,19 @@ function generateUniversityRegistrar(data) {
 
       // Create an entry in the departmentReports object with a key:value pair of Department Name and an object of the departmentAverage and courses (Engineering dept, average of 83.3, courses showing name and score, pulling from courseReports object)
       departmentReports[department] = {
-        departmentAverage,
+        departmentAverage: Math.round(departmentAverage * 100) / 100,
         courses: courseReports,
       };
     }
   });
   // Step 2.4 University Average
   const universityAverage =
-    // Using reduce I add all averages together and divide by .length
-    allStudentAverages.reduce((sum, { average }) => sum + average, 0) /
-    allStudentAverages.length;
+    Math.round(
+      // Using reduce I add all averages together and divide by .length
+      (allStudentAverages.reduce((sum, { average }) => sum + average, 0) /
+        allStudentAverages.length) *
+        100,
+    ) / 100;
   // Step 2.5 Top Student
   // Starting with the first student's average (Alice) compare each student's average against the next, keeping only the higher (top) average
   const topStudent = allStudentAverages.reduce((highest, current) => {
@@ -200,7 +203,10 @@ function generateUniversityRegistrar(data) {
   // Step 2.6 Deliver final object
   return {
     universityAverage,
-    topStudent: { name: topStudent.name, average: topStudent.average },
+    topStudent: {
+      name: topStudent.name,
+      average: Math.round(topStudent.average * 100) / 100,
+    },
     departments: departmentReports,
   };
 }
