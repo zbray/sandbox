@@ -1,0 +1,6 @@
+wa-card {
+  background-color: red;
+  img[slot="media"] {
+    max-width: 100px;
+  }
+}
