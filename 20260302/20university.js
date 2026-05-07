@@ -127,18 +127,82 @@ function calculateCleanAverage(scores) {
   return valid.reduce((sum, score) => sum + score, 0) / valid.length;
 }
 // Test the helper function
-console.log(calculateCleanAverage([80, 90, 85])); // Alice
-console.log(calculateCleanAverage([70, null, "absent", 75])); // Bob
-console.log(calculateCleanAverage([90, "95", 92])); // Charlie
-console.log(calculateCleanAverage([88, 82, 85])); // Diana
-console.log(calculateCleanAverage([])); // Evan
+// console.log(calculateCleanAverage([80, 90, 85])); // Alice
+// console.log(calculateCleanAverage([70, null, "absent", 75])); // Bob
+// console.log(calculateCleanAverage([90, "95", 92])); // Charlie
+// console.log(calculateCleanAverage([88, 82, 85])); // Diana
+// console.log(calculateCleanAverage([])); // Evan
 
-// Step 2: Traverse the tree bottom up
-// 
-Calculate student averages first,
-// push those up to calculate course averages, push those up for department averages, etc.
-// Step 3: He has to completely flip the structure from arrays into nested objects based on keys.
+// Step 2: Main function: Traverse the tree bottom up
 
-// Step 2.1 
+function generateUniversityRegistrar(data) {
+  const departmentReports = {};
+  // Step 2.1 Calculate student averages first,
+  const allStudentAverages = [];
 
-// function generateUniversityRegistrar
+  data.forEach(({ department, courses }) => {
+    const courseReports = {};
+    const departmentStudentAverages = [];
+    // Step 2.2 Loop through courses to find average
+    courses.forEach(({ courseName, students }) => {
+      const courseStudentAverages = [];
+
+      students.forEach(({ name, scores }) => {
+        const average = calculateCleanAverage(scores);
+
+        if (average !== null) {
+          // Push average to courseStudentAverages
+          courseStudentAverages.push(average);
+          // Push average to departmentStudentAverages
+          departmentStudentAverages.push(average);
+          // Push {name, average} to allStudentAverages
+          allStudentAverages.push({ name, average });
+        }
+      });
+
+      // Step 2.2 Course average (calculate it here)
+      // I'm only checking for courses with averages in case there are courses with only students like Evan with no scores or averages
+      if (courseStudentAverages.length > 0) {
+        const courseAverage =
+          courseStudentAverages.reduce((sum, avg) => sum + avg, 0) /
+          courseStudentAverages.length;
+
+        // Step 2.2 Course average (add to courseReports here)
+        // This delivers the requirement in Step 3, "He has to completely flip the structure from arrays into nested objects based on keys."
+        courseReports[courseName] = courseAverage;
+      }
+    });
+
+    // Step 2.3 Department average
+    if (departmentStudentAverages.length > 0) {
+      const departmentAverage =
+        departmentStudentAverages.reduce((sum, avg) => sum + avg, 0) /
+        departmentStudentAverages.length;
+
+      // Create an entry in the departmentReports object with a key:value pair of Department Name and an object of the departmentAverage and courses (Engineering dept, average of 83.3, courses showing name and score, pulling from courseReports object)
+      departmentReports[department] = {
+        departmentAverage,
+        courses: courseReports,
+      };
+    }
+  });
+  // Step 2.4 University Average
+  const universityAverage =
+    // Using reduce I add all averages together and divide by .length
+    allStudentAverages.reduce((sum, { average }) => sum + average, 0) /
+    allStudentAverages.length;
+  // Step 2.5 Top Student
+  // Starting with the first student's average (Alice) compare each student's average against the next, keeping only the higher (top) average
+  const topStudent = allStudentAverages.reduce((highest, current) => {
+    return current.average > highest.average ? current : highest;
+  }, allStudentAverages[0]);
+
+  // Step 2.6 Deliver final object
+  return {
+    universityAverage,
+    topStudent: { name: topStudent.name, average: topStudent.average },
+    departments: departmentReports,
+  };
+}
+const report = generateUniversityRegistrar(universityData);
+console.log(JSON.stringify(report, null, 2));
