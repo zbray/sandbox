@@ -133,5 +133,12 @@ console.log(calculateCleanAverage([90, "95", 92])); // Charlie
 console.log(calculateCleanAverage([88, 82, 85])); // Diana
 console.log(calculateCleanAverage([])); // Evan
 
+// Step 2: Traverse the tree bottom up
+// 
+Calculate student averages first,
+// push those up to calculate course averages, push those up for department averages, etc.
+// Step 3: He has to completely flip the structure from arrays into nested objects based on keys.
+
+// Step 2.1 
 
 // function generateUniversityRegistrar
