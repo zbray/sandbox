@@ -176,7 +176,7 @@ finalTotal: 1980 // (2 laptops + 2 keyboards) = 2200 - 10% discount
 
     Logic Concept: This is the ultimate test of everything he has learned. He will likely need to use .reduce() (or a very well-managed for loop and an external object) to build the cart state step-by-step. He has to handle the logic of removing an item completely if its quantity hits 0, and then do a final math calculation on the result. -->
 
-20. The "University Registrar" (Deep Aggregation & Data Cleaning)
+<!-- 20. The "University Registrar" (Deep Aggregation & Data Cleaning)
     Goal: Test his patience, organizational skills, and ability to track scope through deeply nested structures. He will need to clean data, perform math, and restructure the output entirely. Constraint: None. He can use any built-in methods.
     The Description: "You are building a reporting dashboard for a University. You receive a deeply nested array of departments, courses, and students. However, the data is messy. Students missed tests, some scores were recorded as strings, and some are just missing.
     Your task is to build a comprehensive report that calculates:
@@ -248,7 +248,7 @@ Logic Concept: This is laborious because it requires a multi-step pipeline. If h
 
 Step 1: He needs to learn to write helper functions (e.g., calculateCleanAverage(scoresArray) that filters out nulls/words, converts strings to numbers, and returns the average).
 Step 2: He has to traverse the tree from the bottom up. Calculate student averages first, push those up to calculate course averages, push those up for department averages, etc.
-Step 3: He has to completely flip the structure from arrays into nested objects based on keys.
+Step 3: He has to completely flip the structure from arrays into nested objects based on keys. -->
 
 21. The "Global Financial Reconciliation" (The Ultimate Pipeline)
     Goal: Simulate a real-world, extremely messy data integration task. He must build a pipeline that cleans inconsistent data types, normalizes currencies, parses dates, and aggregates metrics across multiple dimensions. Constraint: None. He should heavily rely on built-in methods and is strongly encouraged to write separate helper functions (e.g., parsePrice(), normalizeDate()) rather than doing it all in one massive block.
