@@ -32,8 +32,7 @@
 // provided exchange rate to get the USD value.
 // 4. Dates: Dates come in multiple formats (YYYY-MM-DD, MM/DD/YYYY, or
 // full ISO strings). You must extract just the Year and Month to group
-// |reve
-// // .padStart()nue by month (e.g., "2023-01").
+// |revenue by month (e.g., "2023-01").
 
 // The Input Data:
 
@@ -142,7 +141,24 @@ function checkStatus(status) {
 }
 
 // Find USD
-parsePrice();
+function parsePrice(price, exchangeRates) {
+  // check for raw numbers
+  if (typeof price === "number") {
+    return price;
+  }
+
+  // the rest will be strings, extract symbol from symbolMap for currency
+  const symbol = price[0];
+  const currency = symbolMap[symbol];
+  const rate = exchangeRates[currency];
+
+  // clean string for calculating; remove the symbols and replace commas with periods
+  const cleanedCurrency = price.slice(1).replace(",", ".");
+  const numericValue = parseFloat(cleanedCurrency);
+
+  // return USD
+  return numericValue * rate;
+}
 
 // Find Date
 function normalizeDate(dateString) {
