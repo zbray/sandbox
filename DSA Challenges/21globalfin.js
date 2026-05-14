@@ -174,8 +174,8 @@ function normalizeDate(dateString) {
     date = new Date(dateString);
   }
   // Extract year and date from parse
-  const year = date.getFullYear();
-  const month = String(date.getMonth() + 1).padStart(2, "0");
+  const year = date.getUTCFullYear();
+  const month = String(date.getUTCMonth() + 1).padStart(2, "0");
   // +1 here to accurately record
   // .padStart() to ensure each month is two digits
 
