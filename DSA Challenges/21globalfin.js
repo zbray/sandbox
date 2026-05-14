@@ -190,6 +190,29 @@ function normalizeQty(qty) {
   return isNaN(n) ? 1 : n;
 }
 
+// Main Pipeline
+
+// 1. Filter transactions where status="COMPLETED"
+
+const completedTransactions = rawTransactions.filter((transaction) =>
+  checkStatus(transaction.status),
+);
+
+const finalReport = {
+  totalGrossRevenueUSD: 0,
+  topSpender: "",
+  bestSellingProduct: "",
+  revenueByMonth: {},
+  userMetrics: {},
+};
+
+const productQuantities = {};
+// 2. Loop
+// 2.1 Calculate USD for each transaction
+// 2.2 Calculate totalGrossRevenueUSD, topSpender, bestSellingProduct, userMetrics (totalSpentUSD, itemsBought), revenueByMonth
+// 3. Return as JSON
+
 // lessons:
 // Date Constructor
 // .padStart()
+// .parseFloat()
