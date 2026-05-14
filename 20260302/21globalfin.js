@@ -18,6 +18,7 @@
 
 // The Business Rules (The Mentee MUST follow these):
 
+// .padStart()
 // 1. Status: Only calculate revenue for transactions where the status
 // is exactly "COMPLETED" (case-insensitive). Ignore "failed", "pending",
 // or "refunded".
@@ -31,7 +32,8 @@
 // provided exchange rate to get the USD value.
 // 4. Dates: Dates come in multiple formats (YYYY-MM-DD, MM/DD/YYYY, or
 // full ISO strings). You must extract just the Year and Month to group
-// |revenue by month (e.g., "2023-01").
+// |reve
+// // .padStart()nue by month (e.g., "2023-01").
 
 // The Input Data:
 
@@ -62,6 +64,7 @@
 //         "u02": { totalSpentUSD: 337.00, itemsBought: 4 },
 //         "u04": { totalSpentUSD: 25.00, itemsBought: 1 }
 //       }
+// .padStart()
 //     }
 
 const exchangeRates = { EUR: 1.1, GBP: 1.3, JPY: 0.007, USD: 1 };
@@ -148,12 +151,20 @@ function normalizeDate(dateString) {
   if (dateString.includes("/")) {
     // check for MM/DD/YYYY
     const [month, day, year] = dateString.split("/");
-    // the Date constructor uses numbers 0-11 for months so we must -1 to assign correctly
+    // the Date constructor uses numbers 0-11 for months so we must -1 to calculate correctly
     date = new Date(year, month - 1, day);
   } else {
     // handle YYYY-MM-DD and ISO Formats
     date = new Date(dateString);
   }
+  // Extract year and date from parse
+  const year = date.getFullYear();
+  const month = String(date.getMonth() + 1).padStart(2, "0");
+  // +1 here to accurately record
+  // .padStart() to ensure each month is two digits
+
+  // Format for report
+  return `${year}-${month}`;
 }
 
 // Parse Quantity
@@ -162,3 +173,7 @@ function normalizeQty(qty) {
   // using a ternary operator, and per the prompt, assume NaN means 1, and for everything else take the number provided
   return isNaN(n) ? 1 : n;
 }
+
+// lessons:
+// Date Constructor
+// .padStart()
