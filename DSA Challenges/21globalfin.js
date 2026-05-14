@@ -197,7 +197,7 @@ function normalizeQty(qty) {
 const completedTransactions = rawTransactions.filter((transaction) =>
   checkStatus(transaction.status),
 );
-
+// Initialize finalReport object with all expected fields
 const finalReport = {
   totalGrossRevenueUSD: 0,
   topSpender: "",
@@ -207,7 +207,64 @@ const finalReport = {
 };
 
 const productQuantities = {};
+
 // 2. Loop
+
+for (const transaction of completedTransactions) {
+  const qty = normalizeQty(transaction.qty);
+  const priceUSD = parsePrice(transaction.price, exchangeRates);
+  const totalUSD = qty * priceUSD;
+  const yearMonth = normalizeDate(transaction.date);
+
+  // find the total spend
+  finalReport.totalGrossRevenueUSD += totalUSD;
+
+  // access the month of the transaction
+  finalReport.revenueByMonth[yearMonth] =
+    // if the month does not exist treat the revenuebyMonth as empty (0) but regardless add transactions price to it
+    (finalReport.revenueByMonth[yearMonth] || 0) + totalUSD;
+
+  // create userMetrics, tracking total spend and items bought
+  // first check if user exists in userMetrics
+  if (!finalReport.userMetrics[transaction.user]) {
+    // if they don't create them with totalSpent and itemsBought at 0
+    finalReport.userMetrics[transaction.user] = {
+      totalSpentUSD: 0,
+      itemsBought: 0,
+    };
+  }
+  // if they already exist, add to their metrics
+  finalReport.userMetrics[transaction.user].totalSpentUSD += totalUSD;
+  finalReport.userMetrics[transaction.user].itemsBought += qty;
+
+  //track product quantities
+  productQuantities[transaction.product] =
+    // if the product is already being tracked, add to it, if not, create at 0 and add to it
+    (productQuantities[transaction.product] || 0) + qty;
+}
+
+// find topSpender
+
+// start with maxSpent tracking the top spender as spending $0
+let maxSpent = 0;
+
+for (const user in finalReport.userMetrics) {
+  // check each users spend against the current maxSpent level, if the current user in the loop has a higher spend, replace maxSpent with their total and assign them topSpender.
+  if (finalReport.userMetrics[user].totalSpentUSD > maxSpent) {
+    maxSpent = finalReport.userMetrics[user].totalSpentUSD;
+    finalReport.topSpender = user;
+  }
+}
+
+let maxQty = 0;
+
+for (const product in productQuantities) {
+  if (productQuantities[product] > maxQty) {
+    maxQty = productQuantities[product];
+    finalReport.bestSellingProduct = product;
+  }
+}
+console.log(JSON.stringify(finalReport, null, 2));
 // 2.1 Calculate USD for each transaction
 // 2.2 Calculate totalGrossRevenueUSD, topSpender, bestSellingProduct, userMetrics (totalSpentUSD, itemsBought), revenueByMonth
 // 3. Return as JSON
